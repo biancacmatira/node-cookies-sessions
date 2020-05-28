@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 exports.getLogin = (req, res, next) => {
-    console.log(req.session.isLoggedIn);
+    // console.log(req.session.isLoggedIn);
     res.render('auth/login', {
         path: '/auth/login',
         pageTitle: 'Login Page',
@@ -11,7 +11,8 @@ exports.getLogin = (req, res, next) => {
 
 //fake login process
 exports.postLogin = (req, res, next) => {
-    User.findById('5ed011b19e7455d6377df5a1') //change the ID to a user id on your DB (create a users collection)
+    //copy the user id from user collection (mongodb-compass/atlas) and paste below~
+    User.findById('5ed014df78b7a7ecea49caf7')
         .then(user => {
             req.session.isLoggedIn = true;
             req.session.user = user;
